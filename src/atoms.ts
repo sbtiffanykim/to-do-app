@@ -18,6 +18,11 @@ const { persistAtom } = recoilPersist({
   storage: localStorage,
 });
 
+export const categoryModalState = atom({
+  key: 'categoryModalState',
+  default: false,
+});
+
 export const categoryState = atom<string[]>({
   key: 'categoryList',
   default: Object.keys(DefaultCategories),

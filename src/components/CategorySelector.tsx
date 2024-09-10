@@ -1,9 +1,8 @@
 import styled from 'styled-components';
 import { useRecoilState, useRecoilValue } from 'recoil';
 import { FaPlus } from 'react-icons/fa';
-import { categoryState, selectedCategoryState } from '../atoms';
-import AddCategory from './AddCategory';
-import { useState } from 'react';
+import { categoryModalState, categoryState, selectedCategoryState } from '../atoms';
+import AddCategoryModal from './AddCategoryModal';
 
 const CategoryList = styled.div`
   display: grid;
@@ -34,18 +33,23 @@ const Button = styled.button<{ selected?: boolean }>`
 `;
 
 export default function CategorySelector() {
-  const categories = useRecoilValue(categoryState);
+  const allCategories = useRecoilValue(categoryState);
   const [selectedCategory, setSelectedCategory] = useRecoilState(selectedCategoryState);
-  const [isAddClicked, setIsAddClicked] = useState(false);
+  const [isCategoryAddBtnClicked, setisCategoryAddBtnClicked] =
+    useRecoilState(categoryModalState);
 
   const onClick = (event: React.FormEvent<HTMLButtonElement>) => {
     setSelectedCategory(event.currentTarget.name as any);
   };
 
+  const handleAddBtn = () => {
+    setisCategoryAddBtnClicked(true);
+  };
+
   return (
     <>
       <CategoryList>
-        {categories?.map((category) => (
+        {allCategories?.map((category) => (
           <Button
             key={category}
             name={category}
@@ -55,12 +59,12 @@ export default function CategorySelector() {
             {category}
           </Button>
         ))}
-        <Button>
+        <Button onClick={handleAddBtn}>
           <FaPlus />
         </Button>
       </CategoryList>
 
-      {isAddClicked && <AddCategory />}
+      {isCategoryAddBtnClicked && <AddCategoryModal />}
     </>
   );
 }
