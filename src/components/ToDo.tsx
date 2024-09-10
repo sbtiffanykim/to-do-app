@@ -7,6 +7,7 @@ import styled from 'styled-components';
 const ToDoItem = styled.div`
   display: flex;
   flex-direction: column;
+  width: 100%;
   padding: 15px;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 `;
@@ -16,7 +17,9 @@ const ToDoText = styled.p``;
 const ButtonGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(6, 1fr);
+  width: 100%;
   margin-top: 10px;
+  gap: 7px;
 `;
 
 const CategoryButton = styled.button`
@@ -27,13 +30,13 @@ const CategoryButton = styled.button`
   text-align: center;
   font-size: 12px;
   background-color: #f1f2f6;
+  max-width: 70px;
   padding: 4px 8px;
   border-radius: 3px;
   cursor: pointer;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
   transition: background-color 0.3s ease;
-  width: fit-content;
-  max-width: fit-content;
+
   &:hover {
     background-color: #dfe4ea;
   }
@@ -45,6 +48,8 @@ const CategoryButton = styled.button`
 const CancelButton = styled(CategoryButton)`
   background-color: #f3a683;
   color: #2f3542;
+  width: fit-content;
+  max-width: fit-content;
   &:hover {
     background-color: #f59a70;
   }

@@ -1,10 +1,9 @@
-import { errorSelector, useRecoilState, useSetRecoilState } from 'recoil';
+import { useRecoilState } from 'recoil';
 import { useForm } from 'react-hook-form';
 import styled from 'styled-components';
 import { MdPlaylistAdd } from 'react-icons/md';
 import { IoMdClose } from 'react-icons/io';
 import { categoryState } from '../atoms';
-import React from 'react';
 
 interface ICategoryAddForm {
   newCategory: string;
