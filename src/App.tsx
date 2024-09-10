@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components';
+import styled, { createGlobalStyle } from 'styled-components';
 import reset from 'styled-reset';
 import ToDoList from './components/ToDoList';
 
@@ -18,11 +18,24 @@ body {
   }
 `;
 
+const Container = styled.div`
+  display: flex;
+  justify-content: center;
+  height: 90vh;
+  width: 50vw;
+  border-radius: 10px;
+  background-color: white;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  margin: 5vh auto;
+`;
+
 function App() {
   return (
     <>
       <GlobalStyle />
-      <ToDoList />
+      <Container>
+        <ToDoList />
+      </Container>
     </>
   );
 }

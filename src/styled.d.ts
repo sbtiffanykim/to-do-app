@@ -5,8 +5,9 @@ declare module 'styled-components' {
     bgColor: string;
     textColor: string;
     accentColor: string;
-    cardBgColor: string;
-    cardHoverBgColor: string;
+    buttonBgColor: string;
+    buttonHoverBgColor: string;
+    buttonTextColor: string;
     borderColor: string;
   }
 }
